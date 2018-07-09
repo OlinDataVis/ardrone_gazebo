@@ -67,6 +67,11 @@ Run catkin_init_workspace inside the src directory:
 
     $ cd src
     $ catkin_init_workspace
+    
+Build your catkin workspace:
+
+    $ cd ..
+    $ catkin_make
 
 Now source your new setup.bash file inside your .bashrc:
 
