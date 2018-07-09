@@ -5,6 +5,8 @@ Gazebo simulator test environment for the Parrot ArDrone. The world is a simulat
 
 ## Packages Description
 
+NOTE from SoftDesPt2 Dev: Some of these packages don't work properly. We'll only be using the ardrone_vislab package but I wanted to leave the information from the other ones so that you know they're there.
+
 * [ardrone_helpers](ardrone_helpers): Contains the joystick controller for the ardrone.
 * [ardrone_vislab](ardrone_vislab): Contains the gazebo world files of the lab map, the ardrone model with the plugins and the simulation launch files.
 * [aruco_test](aruco_test): Contains the aruco board recognition package. It recognises the board in the simulator and publishes its position and pose on a ros topic (/ardrone/aruco/pose)
