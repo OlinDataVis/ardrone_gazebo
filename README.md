@@ -87,22 +87,22 @@ In order to compile the joystick controller for the ardrone you need to compile 
 
 ## Run
 
-### 1 - Runnig the simulation environment without AruCo
+### 1 - Running the simulation environment without AruCo
 To launch the simulator without AruCo run ardrone_vislab launcher using roslaunch:
 
     $ roslaunch ardrone_vislab_gazebo ardrone_vislab.launch
 
-### 2 - Runnig the simulation environment with AruCo
+### 2 - Running the simulation environment with AruCo
 To launch the simulator with AruCo run ardrone_vislab launcher using roslaunch:
 
     $ roslaunch ardrone_vislab_gazebo ardrone_vislab.launch world:="isr_7th_floor_aruco.world"
 
-### 3 - Runnig the joystick controller
+### 3 - Running the joystick controller
 To launch the joystick controller using roslaunch:
 
     $ roslaunch ardrone_joystick teleop.launch
 
-### 4 - Runnig the AruCo recognition package
+### 4 - Running the AruCo recognition package
 To launch the AruCo recognition package using roslaunch:
 
     $ roslaunch aruco_test aruco_test.launch
