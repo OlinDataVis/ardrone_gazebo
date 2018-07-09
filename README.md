@@ -23,6 +23,14 @@ At any time you might need to install some more specific dependencies (like some
 
 ## Download and Setup
 
+### 0 - Stop Anaconda from ruining everything
+Anaconda and ROS don't like eachother. Make sure to remove it from your ~/.bashrc file so that it doesn't ruin everything.
+First, open your .bashrc file in your favorite text editor.
+
+    $ atom ~/.bashrc
+    
+Now comment out the line added by Anaconda "export PATH="/home/egonzalez/anaconda3/bin:$PATH""
+
 ### 1 - Install ROS
 Install ros full desktop following the installation instructions on the official ros website: www.ros.org (I tested on kinetic. Feel free to try something else but be ready to suffer.)
 
