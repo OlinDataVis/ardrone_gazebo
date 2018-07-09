@@ -24,7 +24,7 @@ At any time you might need to install some more specific dependencies (like some
 ## Download and Setup
 
 ### 1 - Install ROS
-Install ros full desktop following the installation instructions on the official ros website: www.ros.org (tested on indigo, jade and kinetic)
+Install ros full desktop following the installation instructions on the official ros website: www.ros.org (I tested on kinetic. Feel free to try something else but be ready to suffer.)
 
 ### 2 - Install the ardrone_autonomy package
 If you are on Ubuntu simply write on your console:
