@@ -35,12 +35,22 @@ If you are on Ubuntu simply write on your console:
 If you are using ros indigo install gazebo5, 6 or 7 from the osrfoundation repository. look at this page for more details: http://gazebosim.org/tutorials?tut=ros_wrapper_versions
 
 ### 4 - Install the aruco lib
-In order to install the aruco lib follow the instructions of the readme in the official repository:
-https://sourceforge.net/projects/aruco/files/2.0.10/
+In order to install the aruco library, download "aruco-2.0.19.zip" from https://sourceforge.net/projects/aruco/files/2.0.19/ and extract the contents into a new folder. Navigate to that folder and run the following to compile the library:
+
+    $ mkdir build
+    $ cd build
+    $ cmake ..
+    $ make -j4
+    
+Within the the build directory, be sure to run:
+    
+    $ sudo make install
+    
+This installs the library you just compiled.
 
 Now add an environment variable with the path to your aruco library directory. To do so export the ARUCO_LIB_PATH inside your .bashrc:
 
-    $ echo "export ARUCO_LIB_PATH=<your_aruco_lib_directory>" >> ~/.bashrc
+    $ echo "export ARUCO_LIB_PATH=/usr/local/lib" >> ~/.bashrc
     $ source ~/.bashrc
 
 ### 5 - Create a catkin workspace
