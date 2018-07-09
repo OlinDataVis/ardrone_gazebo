@@ -1,4 +1,4 @@
-# ardrone_gazebo
+# ardrone_gazebo (adapted for SoftDes pt 2)
 Gazebo simulator test environment for the Parrot ArDrone. The world is a simulated version of the ISR 7th floor. The ArDrone model is based on the implementation of a gazebo simulator for the Ardrone 2.0 written by Hongrong Huang and Juergen Sturm of the Computer Vision Group at the Technical University of Munich (http://wiki.ros.org/tum_simulator). 
 
 ![ArDrone inside the simulated lab map](images/ardrone_simulator.jpg)
@@ -101,34 +101,12 @@ In order to compile the packages just run the following commands:
     $ cd <your_catkin_ws_directory>
     $ catkin_make
 
-### 2 - Compile the ardrone_helpers with rosmake
-In order to compile the joystick controller for the ardrone you need to compile it with rosmake:
-
-    $ cd <your_catkin_ws_directory>/ardrone_helpers
-    $ rosmake joy
-    $ rosmake ardrone_joystick
-
 ## Run
 
-### 1 - Runnig the simulation environment without AruCo
-To launch the simulator without AruCo run ardrone_vislab launcher using roslaunch:
+### 1 - Running the simulation environment
+To launch the simulator, run ardrone_vislab launcher using roslaunch:
 
     $ roslaunch ardrone_vislab_gazebo ardrone_vislab.launch
-
-### 2 - Runnig the simulation environment with AruCo
-To launch the simulator with AruCo run ardrone_vislab launcher using roslaunch:
-
-    $ roslaunch ardrone_vislab_gazebo ardrone_vislab.launch world:="isr_7th_floor_aruco.world"
-
-### 3 - Runnig the joystick controller
-To launch the joystick controller using roslaunch:
-
-    $ roslaunch ardrone_joystick teleop.launch
-
-### 4 - Runnig the AruCo recognition package
-To launch the AruCo recognition package using roslaunch:
-
-    $ roslaunch aruco_test aruco_test.launch
 
 ## Issues
 
