@@ -114,3 +114,4 @@ To launch the simulator, run ardrone_vislab launcher using roslaunch:
 
 All kind of issues and contributions will be very welcome. Please get in touch on [our issues page](https://github.com/vislab-tecnico-lisboa/ardrone_gazebo/issues) when help is needed!
 
+NOTE from SoftDes Pt2 Dev: This is a link to the original repo we modified this repo from. Just be aware that a few things are different from our version if you decide to reach out.
