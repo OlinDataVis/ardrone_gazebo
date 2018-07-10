@@ -17,7 +17,7 @@
 #include <sstream>
 #include <string>
 
-#include "aruco.h"
+#include <aruco/aruco.h>
 
 using namespace cv;
 using namespace aruco;
