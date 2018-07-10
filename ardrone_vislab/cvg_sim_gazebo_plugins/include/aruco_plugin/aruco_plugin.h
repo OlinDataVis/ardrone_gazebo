@@ -17,7 +17,7 @@
 #include <sstream>
 #include <string>
 
-#include "aruco.h"
+#include <aruco/aruco.h>
 
 using namespace cv;
 using namespace aruco;
@@ -32,24 +32,24 @@ namespace gazebo
 
       // Pointer to the update event connection
       event::ConnectionPtr updateConnection;
-      
+
       /// \brief for setting ROS name space
       std::string robotNamespace;
-      
+
       /// \brief topic name
       std::string topicName;
-      
+
       std::string arucoMapFile, arucoFrontCameraFile;
-      
+
       bool image_received;
-      
+
       ros::NodeHandle nh_;
       image_transport::ImageTransport it_;
       image_transport::Subscriber image_sub_;
       ros::Publisher aruco_pose_pub_;
-      
+
       bool first_image = true;
-      
+
       int corner;
       int index;
       string TheMarkerMapConfigFile;
@@ -66,9 +66,9 @@ namespace gazebo
       int iThresParam1, iThresParam2;
       int waitTime = 10;
       std::map<int,cv::Mat> frame_pose_map;//set of poses and the frames they were detected
-      
+
       cv_bridge::CvImagePtr cv_ptr;
-      
+
    public:
       /// \brief Constructor
       ArucoPlugin();
@@ -79,7 +79,7 @@ namespace gazebo
    protected:
       virtual void Load(physics::ModelPtr _model, sdf::ElementPtr _sdf);
       virtual void OnUpdate();
-      
+
       void imageCb(const sensor_msgs::ImageConstPtr& msg);
    };
 }

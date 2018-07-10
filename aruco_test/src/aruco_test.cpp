@@ -10,7 +10,7 @@
 #include <sstream>
 #include <string>
 
-#include "aruco.h"
+#include <aruco/aruco.h>
 
 using namespace cv;
 using namespace aruco;
@@ -24,11 +24,11 @@ private:
   image_transport::ImageTransport it_;
   image_transport::Subscriber image_sub_;
   ros::Publisher aruco_pose_pub_;
-  
+
   bool first_image = true;
-  
+
   std::string aruco_map_file, aruco_front_camera_file;
-  
+
   int corner;
   int index;
   string TheMarkerMapConfigFile;
@@ -45,41 +45,41 @@ private:
   int iThresParam1, iThresParam2;
   int waitTime = 10;
   std::map<int,cv::Mat> frame_pose_map;//set of poses and the frames they were detected
-  
+
 public:
   ArucoTest()
     : it_(nh_)
   {
     // Subscrive to input video feed and publish output video feed
-    image_sub_ = it_.subscribe("/quadrotor/ardrone/image_raw", 1, 
+    image_sub_ = it_.subscribe("/quadrotor/ardrone/image_raw", 1,
       &ArucoTest::imageCb, this);
     aruco_pose_pub_ = nh_.advertise<geometry_msgs::Twist>("/quadrotor/ardrone/aruco/pose", 1);
 
     cv::namedWindow(OPENCV_WINDOW);
-    
+
     // aruco part
     ros::NodeHandle private_node_handle("~");
     private_node_handle.param<std::string>("aruco_map_file", aruco_map_file, "aruco_map_file");
     private_node_handle.param<std::string>("aruco_front_camera_file", aruco_front_camera_file, "aruco_front_camera_file");
-    
+
     corner = 0; //1 subpixel
     index = 0;
-    
+
     //TheMarkerMapConfig.readFromFile("/home/nigno/Robot/catkinWS/src/ardrone_gazebo/aruco_test/media/map.yml");
     TheMarkerMapConfig.readFromFile(aruco_map_file);
-    
+
     //TheMarkerMapConfigFile = "/home/nigno/Robot/catkinWS/src/ardrone_gazebo/aruco_test/media/map.yml";
     TheMarkerMapConfigFile = aruco_map_file;
     TheMarkerSize = 0.156;
-    
+
     // read first image to get the dimensions
     //TheInputImage = cv_ptr->image;
-    
+
     // read camera parameters if passed
     TheCameraParameters.readFromXMLFile(aruco_front_camera_file);
     //TheCameraParameters.readFromXMLFile("/home/nigno/Robot/catkinWS/src/ardrone_gazebo/aruco_test/media/front_camera.yml");
     //TheCameraParameters.resize(TheInputImage.size());
-      
+
     //prepare the detector
     string dict=TheMarkerMapConfig.getDictionary();//see if the dictrionary is already indicated in the configuration file. It should!
     if(dict.empty()) dict="ARUCO";
@@ -92,22 +92,22 @@ public:
       params._subpix_wsize= (15./2000.)*float(TheInputImage.cols) ;//search corner subpix in a 5x5 widow area
       TheMarkerDetector.setParams(params);
     }
-    
+
     //prepare the pose tracker if possible
     //if the camera parameers are avaiable, and the markerset can be expressed in meters, then go
-    
+
     if ( TheMarkerMapConfig.isExpressedInPixels() && TheMarkerSize>0)
       TheMarkerMapConfig=TheMarkerMapConfig.convertToMeters(TheMarkerSize);
     cout<<"TheCameraParameters.isValid()="<<TheCameraParameters.isValid()<<" "<<TheMarkerMapConfig.isExpressedInMeters()<<endl;
     if (TheCameraParameters.isValid() && TheMarkerMapConfig.isExpressedInMeters()  )
       TheMSPoseTracker.setParams(TheCameraParameters,TheMarkerMapConfig);
-    
-    
+
+
     // Create gui
-    
+
     cv::namedWindow("thres", 1);
     cv::namedWindow("in", 1);
-    
+
 //     TheMarkerDetector.getThresholdParams(ThresParam1, ThresParam2);
 //     iThresParam1 = ThresParam1;
 //     iThresParam2 = ThresParam2;
@@ -123,7 +123,7 @@ public:
   void imageCb(const sensor_msgs::ImageConstPtr& msg)
   {
     geometry_msgs::Twist aruco_pose;
-    
+
     cv_bridge::CvImagePtr cv_ptr;
     try
     {
@@ -134,18 +134,18 @@ public:
       ROS_ERROR("cv_bridge exception: %s", e.what());
       return;
     }
-    
+
     TheInputImage = cv_ptr->image;
-    
+
     if (first_image)
     {
       TheCameraParameters.resize(TheInputImage.size());
       first_image = false;
     }
-    
+
     TheInputImage.copyTo(TheInputImageCopy);
     index++; // number of images captured
-    
+
     // Detection of the board
     vector<aruco::Marker> detected_markers=TheMarkerDetector.detect(TheInputImage);
     //print the markers detected that belongs to the markerset
@@ -165,7 +165,7 @@ public:
 	aruco_pose.angular.z = TheMSPoseTracker.getRvec().at<float>(2);
       }
     }
-    
+
     // show input with augmented information and  the thresholded image
     cv::imshow("in", TheInputImageCopy);
     cv::imshow("thres",TheMarkerDetector.getThresholdedImage());
@@ -173,7 +173,7 @@ public:
     // Update GUI Window
     cv::imshow(OPENCV_WINDOW, cv_ptr->image);
     cv::waitKey(1);
-    
+
     // Output aruco pose
     aruco_pose_pub_.publish(aruco_pose);
   }
