@@ -105,6 +105,7 @@ In order to compile the packages just run the following commands:
 
 ## Run
 
+
 ### 1 - Running the simulation environment
 To launch the simulator, run ardrone_vislab launcher using roslaunch:
 
