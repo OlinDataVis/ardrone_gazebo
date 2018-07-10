@@ -1,11 +1,11 @@
-# ardrone_gazebo (adapted for SoftDes pt 2)
+# ardrone_gazebo (adapted for DataVis)
 Gazebo simulator test environment for the Parrot ArDrone. The world is a simulated version of the ISR 7th floor. The ArDrone model is based on the implementation of a gazebo simulator for the Ardrone 2.0 written by Hongrong Huang and Juergen Sturm of the Computer Vision Group at the Technical University of Munich (http://wiki.ros.org/tum_simulator). 
 
 ![ArDrone inside the simulated lab map](images/ardrone_simulator.jpg)
 
 ## Packages Description
 
-NOTE from SoftDesPt2 Dev: Some of these packages don't work properly. We'll only be using the ardrone_vislab package but I wanted to leave the information from the other ones so that you know they're there.
+NOTE from DataVis Dev: Some of these packages don't work properly. We'll only be using the ardrone_vislab package but I wanted to leave the information from the other ones so that you know they're there.
 
 * [ardrone_helpers](ardrone_helpers): Contains the joystick controller for the ardrone.
 * [ardrone_vislab](ardrone_vislab): Contains the gazebo world files of the lab map, the ardrone model with the plugins and the simulation launch files.
@@ -115,4 +115,4 @@ To launch the simulator, run ardrone_vislab launcher using roslaunch:
 
 All kind of issues and contributions will be very welcome. Please get in touch on [our issues page](https://github.com/vislab-tecnico-lisboa/ardrone_gazebo/issues) when help is needed!
 
-NOTE from SoftDes Pt2 Dev: This is a link to the original repo we modified this repo from. Just be aware that a few things are different from our version if you decide to reach out.
+NOTE from DataVis Dev: This is a link to the original repo we modified this repo from. Just be aware that a few things are different from our version if you decide to reach out.
