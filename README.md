@@ -93,7 +93,7 @@ Now source your new setup.bash file inside your .bashrc:
 Clone the git repository inside your catkin workspace src directory:
 
     $ cd <your_catkin_ws_directory>/src
-    $ git clone https://github.com/vislab-tecnico-lisboa/ardrone_gazebo.git
+    $ git clone https://github.com/OlinDataVis/ardrone_gazebo.git
 
 ## Compile
 
