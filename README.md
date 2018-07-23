@@ -85,7 +85,7 @@ Build your catkin workspace:
 
 Now source your new setup.bash file inside your .bashrc:
 
-    $ echo "source <your_catkin_ws_directory>/devel/setup.bash" >> ~/.bashrc
+    $ echo "source ~/<your_catkin_ws_directory>/devel/setup.bash" >> ~/.bashrc
     $ source ~/.bashrc
 
 
