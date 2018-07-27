@@ -38,8 +38,8 @@
     <image id="elevatorNoButtonsLowRes_jpg" name="elevatorNoButtonsLowRes_jpg">
       <init_from>elevatorNoButtonsLowRes.jpg</init_from>
     </image>
-    <image id="wallClockLowRes_jpg" name="wallClockLowRes_jpg">
-      <init_from>wallClockLowRes.jpg</init_from>
+    <image id="wallClockLowResA_jpg" name="wallClockLowResA_jpg">
+      <init_from>wallClockLowResA.jpg</init_from>
     </image>
     <image id="toiletCentralLowRes_jpg" name="toiletCentralLowRes_jpg">
       <init_from>toiletCentralLowRes.jpg</init_from>
@@ -68,8 +68,8 @@
     <image id="singleToiletLowRes_jpg" name="singleToiletLowRes_jpg">
       <init_from>singleToiletLowRes.jpg</init_from>
     </image>
-    <image id="wallDownLowRes_jpg" name="wallDownLowRes_jpg">
-      <init_from>wallDownLowRes.jpg</init_from>
+    <image id="wallDownLowResP_jpg" name="wallDownLowResP_jpg">
+      <init_from>wallDownLowResP.jpg</init_from>
     </image>
     <image id="labICubLowRes_jpg" name="labICubLowRes_jpg">
       <init_from>labICubLowRes.jpg</init_from>
@@ -77,8 +77,8 @@
     <image id="elevatorBoardLowRes_jpg" name="elevatorBoardLowRes_jpg">
       <init_from>elevatorBoardLowRes.jpg</init_from>
     </image>
-    <image id="atrioSideLowRes_jpg" name="atrioSideLowRes_jpg">
-      <init_from>atrioSideLowRes.jpg</init_from>
+    <image id="atrioSideLowResP_jpg" name="atrioSideLowResP_jpg">
+      <init_from>atrioSideLowResP.jpg</init_from>
     </image>
     <image id="atrioSideRLowRes_jpg" name="atrioSideRLowRes_jpg">
       <init_from>atrioSideRLowRes.jpg</init_from>
@@ -86,8 +86,8 @@
     <image id="labPostersLowRes_jpg" name="labPostersLowRes_jpg">
       <init_from>labPostersLowRes.jpg</init_from>
     </image>
-    <image id="creationLowRes_jpg" name="creationLowRes_jpg">
-      <init_from>creationLowRes.jpg</init_from>
+    <image id="creationLowResZ_jpg" name="creationLowResZ_jpg">
+      <init_from>creationLowResZ.jpg</init_from>
     </image>
     <image id="vizzyLowRes_jpg" name="vizzyLowRes_jpg">
       <init_from>vizzyLowRes.jpg</init_from>
@@ -192,14 +192,14 @@
     </effect>
     <effect id="atrioSide-effect">
       <profile_COMMON>
-        <newparam sid="atrioSideLowRes_jpg-surface">
+        <newparam sid="atrioSideLowResP_jpg-surface">
           <surface type="2D">
-            <init_from>atrioSideLowRes_jpg</init_from>
+            <init_from>atrioSideLowResP_jpg</init_from>
           </surface>
         </newparam>
-        <newparam sid="atrioSideLowRes_jpg-sampler">
+        <newparam sid="atrioSideLowResP_jpg-sampler">
           <sampler2D>
-            <source>atrioSideLowRes_jpg-surface</source>
+            <source>atrioSideLowResP_jpg-surface</source>
           </sampler2D>
         </newparam>
         <technique sid="common">
@@ -211,7 +211,7 @@
               <color sid="ambient">0 0 0 1</color>
             </ambient>
             <diffuse>
-              <texture texture="atrioSideLowRes_jpg-sampler" texcoord="UVMap"/>
+              <texture texture="atrioSideLowResP_jpg-sampler" texcoord="UVMap"/>
             </diffuse>
             <specular>
               <color sid="specular">0.5 0.5 0.5 1</color>
@@ -768,14 +768,14 @@
     </effect>
     <effect id="wallClock-effect">
       <profile_COMMON>
-        <newparam sid="wallClockLowRes_jpg-surface">
+        <newparam sid="wallClockLowResA_jpg-surface">
           <surface type="2D">
-            <init_from>wallClockLowRes_jpg</init_from>
+            <init_from>wallClockLowResA_jpg</init_from>
           </surface>
         </newparam>
-        <newparam sid="wallClockLowRes_jpg-sampler">
+        <newparam sid="wallClockLowResA_jpg-sampler">
           <sampler2D>
-            <source>wallClockLowRes_jpg-surface</source>
+            <source>wallClockLowResA_jpg-surface</source>
           </sampler2D>
         </newparam>
         <technique sid="common">
@@ -787,7 +787,7 @@
               <color sid="ambient">0 0 0 1</color>
             </ambient>
             <diffuse>
-              <texture texture="wallClockLowRes_jpg-sampler" texcoord="UVMap"/>
+              <texture texture="wallClockLowResA_jpg-sampler" texcoord="UVMap"/>
             </diffuse>
             <specular>
               <color sid="specular">0.5 0.5 0.5 1</color>
@@ -804,14 +804,14 @@
     </effect>
     <effect id="wallDown-effect">
       <profile_COMMON>
-        <newparam sid="wallDownLowRes_jpg-surface">
+        <newparam sid="wallDownLowResP_jpg-surface">
           <surface type="2D">
-            <init_from>wallDownLowRes_jpg</init_from>
+            <init_from>wallDownLowResP_jpg</init_from>
           </surface>
         </newparam>
-        <newparam sid="wallDownLowRes_jpg-sampler">
+        <newparam sid="wallDownLowResP_jpg-sampler">
           <sampler2D>
-            <source>wallDownLowRes_jpg-surface</source>
+            <source>wallDownLowResP_jpg-surface</source>
           </sampler2D>
         </newparam>
         <technique sid="common">
@@ -823,7 +823,7 @@
               <color sid="ambient">0 0 0 1</color>
             </ambient>
             <diffuse>
-              <texture texture="wallDownLowRes_jpg-sampler" texcoord="UVMap"/>
+              <texture texture="wallDownLowResP_jpg-sampler" texcoord="UVMap"/>
             </diffuse>
             <specular>
               <color sid="specular">0.5 0.5 0.5 1</color>
@@ -876,14 +876,14 @@
     </effect>
     <effect id="creation-effect">
       <profile_COMMON>
-        <newparam sid="creationLowRes_jpg-surface">
+        <newparam sid="creationLowResZ_jpg-surface">
           <surface type="2D">
-            <init_from>creationLowRes_jpg</init_from>
+            <init_from>creationLowResZ_jpg</init_from>
           </surface>
         </newparam>
-        <newparam sid="creationLowRes_jpg-sampler">
+        <newparam sid="creationLowResZ_jpg-sampler">
           <sampler2D>
-            <source>creationLowRes_jpg-surface</source>
+            <source>creationLowResZ_jpg-surface</source>
           </sampler2D>
         </newparam>
         <technique sid="common">
@@ -895,7 +895,7 @@
               <color sid="ambient">0 0 0 1</color>
             </ambient>
             <diffuse>
-              <texture texture="creationLowRes_jpg-sampler" texcoord="UVMap"/>
+              <texture texture="creationLowResZ_jpg-sampler" texcoord="UVMap"/>
             </diffuse>
             <specular>
               <color sid="specular">0.5 0.5 0.5 1</color>
