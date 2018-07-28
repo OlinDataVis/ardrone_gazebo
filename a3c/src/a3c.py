@@ -32,20 +32,20 @@ from worker import Worker
 from ac_network import AC_Network
 
 import threading
-import multiprocessing      
-        
+import multiprocessing
+
 def main(args):
   #cv2.startWindowThread()
   #cv2.namedWindow("Image window")
   rospy.init_node('a3c', anonymous=True, log_level=rospy.INFO)
-  
+
   #ac = actor_critic()
   time.sleep(1)
-  
+
   rospy.loginfo("<------A3C (Author: Nino Cauli)------>")
-  
-  net_path = rospy.get_param('~networks_dir')  
-  
+
+  net_path = rospy.get_param('~networks_dir')
+
   max_episode_length = 3000
   gamma = .99 # discount rate for advantage estimation and reward discounting
   s_size = 21168 # Observations are greyscale frames of 84 * 84 * 1
@@ -59,12 +59,12 @@ def main(args):
 
   if not os.path.exists(model_path):
       os.makedirs(model_path)
-    
+
   #Create a directory to save episode playback gifs to
   if not os.path.exists(net_path + "/frames"):
       os.makedirs(net_path + "/frames")
 
-  with tf.device("/cpu:0"): 
+  with tf.device("/cpu:0"):
       global_episodes = tf.Variable(0,dtype=tf.int32,name='global_episodes',trainable=False)
       trainer = tf.train.AdamOptimizer(learning_rate=1e-4)
       master_network = AC_Network(s_size,a_size,'global',None) # Generate global network
@@ -85,7 +85,7 @@ def main(args):
           saver.restore(sess,ckpt.model_checkpoint_path)
       else:
           sess.run(tf.global_variables_initializer())
-        
+
       # This is where the asynchronous magic happens.
       # Start the "work" process for each worker in a separate threat.
       worker_threads = []
@@ -93,14 +93,14 @@ def main(args):
           worker_work = lambda: worker.work(max_episode_length,gamma,sess,coord,saver)
           t = threading.Thread(target=(worker_work))
           t.start()
-          rospy.sleep(0.5) 
+          rospy.sleep(0.5)
           worker_threads.append(t)
-      coord.join(worker_threads)  
-  
+      coord.join(worker_threads)
+
   try:
     rospy.spin()
   except KeyboardInterrupt:
-    print("Shutting down")   
+    print("Shutting down")
   cv2.destroyAllWindows()
 
 if __name__ == '__main__':
