@@ -88,7 +88,7 @@ generate_messages(
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-#  INCLUDE_DIRS include
+  INCLUDE_DIRS include
   LIBRARIES diffdrive_plugin_6w reset_plugin hector_gazebo_ros_imu hector_gazebo_ros_magnetic hector_gazebo_ros_gps hector_gazebo_ros_sonar hector_gazebo_ros_baro hector_gazebo_quadrotor_simple_controller hector_gazebo_quadrotor_state_controller
  CATKIN_DEPENDS image_transport
  DEPENDS system_lib
